@@ -3,33 +3,27 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const HeaderStyles = styled.header`
-  height: 5vh;
+  height: 7.5vh;
   width: 100vw;
-  background-color: red;
+  border-bottom: 0.25px solid #545454;
   display: flex;
-  flex-flow: row nowrap;
   align-items: center;
-  font-size: 1.5rem;
+  justify-content: center;
 
-  a:nth-child(1) {
-    padding-left: 1%;
-    outline: none;
+  a {
     text-decoration: none;
-    color: white;
+    border: 0.25px solid #545454;
+    height: 100%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a5a4a2;
 
     &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  a:nth-child(2) {
-    margin-left: auto;
-    padding-right: 1%;
-    text-decoration: none;
-    color: white;
-
-    &:hover {
-      transform: scale(1.1);
+      color: white;
+      font-size: 1.15rem;
+      font-weight: bold;
     }
   }
 `;
@@ -37,8 +31,9 @@ const HeaderStyles = styled.header`
 const Header = () => {
   return (
     <HeaderStyles>
-      <NavLink to="/">six-step</NavLink>
-      <NavLink to="/about">About</NavLink>
+      <NavLink to="/">SIX-STEP</NavLink>
+      <NavLink to="/sets">SETS</NavLink>
+      <NavLink to="/about">ABOUT</NavLink>
     </HeaderStyles>
   )
 };
