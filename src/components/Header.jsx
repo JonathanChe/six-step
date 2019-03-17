@@ -19,11 +19,11 @@ const HeaderStyles = styled.header`
     justify-content: center;
     align-items: center;
     color: #a5a4a2;
+    letter-spacing: 0.15rem;
 
     &:hover {
       color: white;
       font-size: 1.15rem;
-      font-weight: bold;
     }
   }
 `;
@@ -31,7 +31,7 @@ const HeaderStyles = styled.header`
 const Header = () => {
   return (
     <HeaderStyles>
-      <NavLink to="/">SIX-STEP</NavLink>
+      <NavLink to="/">HOME</NavLink>
       <NavLink to="/sets">SETS</NavLink>
       <NavLink to="/about">ABOUT</NavLink>
     </HeaderStyles>
