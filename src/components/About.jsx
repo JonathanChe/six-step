@@ -33,6 +33,7 @@ const SocialIconStyles = styled.a`
   }
 
   &:hover {
+    transform: scale(1.05);
     color: white;
   }
 `;
