@@ -1,34 +1,25 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import Icon from '@material-ui/core/Icon';
 import Card from '@material-ui/core/Card';
 import TextareaAutosize from 'react-textarea-autosize';
 import { Button } from '@material-ui/core';
 import * as actions from '../actions/index';
 
-const styles = {
-  openForButtonGroup: {
-    display: 'flex',
-    alignItems: 'center',
-    cursor: 'pointer',
-    borderRadius: 3,
-    height: 36,
-    width: 272,
-    paddingLeft: 10,
-  },
-  formButtonGroup: {
-    marginTop: 8,
-    display: 'flex',
-    alignItems: 'center',
-  },
-};
+const FormButtonGroupStyles = styled.div`
+  margin-top: 8;
+  display: flex;
+  align-items: center;
+`;
 
 const mapDispatchToProps = dispatch => ({
   handleAddList: title => title && dispatch(actions.addList(title)),
-  handleAddCard: (text, id) => title && id && dispatch(actions.addCard(text, id)),
+  handleAddCard: (text, id) => text && id && dispatch(actions.addCard(text, id)),
 });
 
 // component
+//TODO: Look into styling the background of the text-area
 export const ActionButton = ({
   list,
   handleAddList,
@@ -66,10 +57,11 @@ export const ActionButton = ({
               overflow: 'hidden',
               outline: 'none',
               border: 'none',
+              fontSize: '1.25rem',
             }}
           />
         </Card>
-        <div style={styles.formButtonGroup}>
+        <FormButtonGroupStyles>
           <Button
             onMouseDown={() => {
               if (list) {
@@ -83,7 +75,7 @@ export const ActionButton = ({
             variant='contained'
             style={{
               color: 'white',
-              backgroundColor: '#5aac44',
+              backgroundColor: '#538446',
             }}
           >
             {buttonTitle}
@@ -96,31 +88,29 @@ export const ActionButton = ({
           >
             close
           </Icon>
-        </div>
+        </FormButtonGroupStyles>
       </div>
     )
   };
 
   const renderAddButton = () => {
     const buttonText = list ? 'Add another list' : 'Add another card';
-    const buttonTextOpacity = list ? 1 : 0.5;
-    const buttonTextColor = list ? 'white' : 'inherit';
-    const buttonTextBackground = list ? 'rgba(0, 0, 0, .15)' : 'inherit';
 
     return (
-      <div
-        onClick={() => toggleForm(true)}
-        style={{
-          ...styles.openForButtonGroup,
-          opacity: buttonTextOpacity,
-          color: buttonTextColor,
-          backgroundColor: buttonTextBackground,
-        }}
-      >
-        <Icon>add</Icon>
-        <p>{buttonText}</p>
+      <div>
+        <Button
+          onClick={() => toggleForm(true)}
+          variant='contained'
+          style={{
+            color: 'white',
+            backgroundColor: '#538446',
+          }}
+        >
+          <Icon>add</Icon>
+          <p>{buttonText}</p>
+        </Button>
       </div>
-    )
+    );
   };
 
   // component's return
